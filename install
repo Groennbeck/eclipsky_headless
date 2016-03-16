@@ -1,0 +1,11 @@
+sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+sudo yum install -y apache-maven
+sudo yum install -y git
+git clone https://github.com/Groennbeck/eclipsky_headless.git
+git clone https://github.com/hallvard/jexercise.git
+git clone https://github.com/hallvard/eclipsky.git
+git clone https://github.com/eclipse/paho.mqtt.java.git
+cd paho.mqtt.java
+cd org.eclipse.paho.client.mqttv3
+mvn install
