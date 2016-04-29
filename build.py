@@ -16,6 +16,8 @@ paho_path = os.environ["M2_PATH"] + "/repository/org/eclipse/paho/org.eclipse.pa
 
 
 def build_emfs():
+    command = "cp ./pom/emfs/pom.xml %s" % (emfs_path + "/pom.xml")
+    os.system(command);
 	os.chdir(emfs_path);
 	os.system("mvn install; mvn package");
 	for dir in os.listdir("."):
@@ -32,6 +34,8 @@ def build_emfs():
 
 
 def build_eclipsky():
+    command = "cp ./pom/eclipsky/pom.xml %s" % (emfs_path + "/pom.xml")
+    os.system(command);
 	os.chdir(eclipsky_path);
 	os.system("mvn package");
 	os.chdir("..")
@@ -62,7 +66,7 @@ def copy_p2_deps():
 
 def copy_paho():
 	command = "cp %s %s" % (paho_path, headless_path + "/plugins/")
-	os.system(command) 
+	os.system(command)
 
 def download_osgi_framework():
     osgi = urllib.URLopener()
